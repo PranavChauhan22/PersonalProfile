@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Personal Portfolio</title>
+</head>
+<style>
+    :root{
+        --primary-color:rgb(0, 166, 255);
+        --secondary-color:black;
+        --font-size:20px;
+    }
+    ul{
+        list-style: none;
+    }
+    /* laptops */
+    @media screen and (min-width:720px) {
+        .outer-section{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            margin-top: -10px;
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+        }
+        .navlink{
+            margin-left: 10px;
+        }
+        
+        .logo{
+            padding-left: 30px;
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+        }
+        ul{
+            padding-right: 30px;
+        }
+        .navlink{
+            color: white;
+            font-size: 20px;
+        }
+        .menu-btn{
+            display: none;
+        }
+    }
+    /* mobiles */
+    @media screen and (max-width:720px) {
+        ul{
+            display: none;
+        }
+        .menu-btn{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 10px;
+            padding-left: 20px;
+            color: white;
+        }
+        .logo{
+            padding-left: 30px;
+            font-size: 30px;
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+            padding-left: 20px;
+            color: white;
+        }
+        .outer-section{
+            background-color: var(--primary-color);
+            margin-top: -10px;
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+        #click:checked ~ .menu-btn i:before{
+            content: "\f00d";
+        }
+        #click:checked ~ ul{
+            display: block;
+            text-align: center;
+            color: white;
+        }
+        ul{
+            color: white;
+            background-color: none;
+            
+        }
+
+
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    input[type="checkbox"]{
+        display: none;
+    }
+    .name{
+        color: var(--primary-color);
+    }
+    .image-home{
+        background-image: url("./images/Home.jpg");
+        width: 350px;
+        height: 400px;
+        background-size: cover;
+        position: absolute;
+        right: 100px;
+    }
+    .home{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    
+    }
+    p{
+        width: 300px;
+        color: gray;
+        font-size: 20px;
+    }
+    .content{
+        position: absolute;
+        left: 0;
+        padding-left: 30px;
+    }
+    /* .icon1{
+        background-image: url("./images/Code.png");
+        width: 29px;
+        height: 25px;
+        position: absolute;
+        top: 50vh;
+        background-size: cover;
+    }
+    .icon2{
+        background-image: url("./images/Cricket.png");
+        width: 29px;
+        height: 25px;
+        position: absolute;
+        top: 50vh;
+        left: 20vw;
+        background-size: cover;
+    }
+    .icon3{
+        background-image: url("./images/Basketball.png");
+        width: 29px;
+        height: 25px;
+        position: absolute;
+        top: 50vh;
+        background-size: cover;
+        left: 50vw;
+    } */
+    .icon{
+        width: 50px;
+        height: 50px;
+        margin-left: 70px;
+    }
+    .hobbies{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position: absolute;
+        top: 60vh;
+        right: 30vw;
+    }
+    .headline{
+        font-size: 15px;
+        width: 35vw;
+        margin-top: -10px;
+        padding-bottom: 20px;
+    }
+    .skills-image{
+        width: 300px;
+        height: 350px;
+        position: absolute;
+        right: 10px;
+
+    }
+    .skills{
+        display: flex;
+        flex-direction: column;
+    }
+    .head-skills{
+        font-size: 30px;
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .ratings{
+        border: 2px solid black;
+        width: 500px;
+        margin-top: 10px;
+        height: 10px;
+    }
+    .rating{
+        background-color: black;
+        width: 400px;
+        height: 10px;
+    }
+    .icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .code{
+        margin-left: 10px;
+    }
+    .outer-wrap{
+        position: absolute;
+        top: 130vh;
+        left: 30vw;
+    }
+    .head-skills{
+        padding: 20px;
+    }
+    .skills-image{
+width: 30px;
+position: absolute;
+right: -40px;
+height: 30px;
+
+    }
+    .rt{
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+<body>
+    <div class="outer-section">
+        <!-- left section -->
+        <div class="logo">Pranav</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <!-- right section -->
+        <ul>
+            <li><a href="#" class="home navlink">Home</a></li>
+            <li><a href="#" class="skills navlink">Skills</a></li>
+            <li><a href="#" class="hobbies navlink">Hobbies</a></li>
+        </ul>
+    </div>
+    <div class="home">
+        <div class="content">
+
+            <h1 class="head-1">Hi,</h1>
+            <h1 class="head-2">I'am <span class="name">Pranav</span></h1>
+            <h1 class="head-3">Web Developer</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae exercitationem repellat cupiditate odio ut veniam, consectetur laborum officiis delectus itaque.</p>
+        </div>
+        <div class="image-home"></div>
+    </div>
+    <div class="hobbies">
+        <h1 class="hobbies-head">My Hobbies</h1>
+        <p class="headline">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, facere!</p>
+        <div>
+            <div class="icons">
+
+                <img src="images/Code.png" class="code icon">
+                <div class="code">Code</div>
+            </div>
+            <img src="images/Cricket.png" class="cricket icon">
+            <img src="images/Basketball.png" class="Basketball icon">
+            <img src="images/Travel.png" class="travel icon">
+            <img src="images/Music.png" class="music icon">
+        </div>
+    </div>
+    <div class="outer-wrap">
+
+        <div class="skills">
+            <div>
+                
+                <div class="head-skills">Skills</div>
+                <div class="headline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, eos!</div>
+            </div>
+            <div class="rt">
+
+                <img src="images/Html.png" class="skills-image">
+                <div class="ratings">
+                    <div class="rating"></div>
+                </div>
+            </div>
+            <div class="ratings">
+                <div class="rating"></div>
+            </div>
+            <div class="ratings">
+                <div class="rating"></div>
+            </div>
+            <div class="ratings">
+                <div class="rating"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
